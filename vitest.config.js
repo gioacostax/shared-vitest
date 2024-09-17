@@ -5,6 +5,12 @@
 
 import { defineConfig } from 'vitest/config';
 
+/**
+ * Vitest Base config dependencies
+ * - vitest
+ * - jsdom
+ * - @vitest/coverage-istanbul
+ */
 export default defineConfig({
   test: {
     clearMocks: true,

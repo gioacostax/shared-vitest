@@ -1,12 +1,12 @@
 /**
- * This file can be used to define Vitest utils
+ * This file can be used to define DOM test utils
  */
 
 import { screen } from '@testing-library/dom';
 
 //////////////////////////////////////////////////////////////
 export const mockLocationAssign = (href = 'https://localhost') => {
-  const assign = vitest.fn();
+  const assign = vi.fn();
   Object.defineProperty(window, 'location', {
     configurable: true,
     value: new URL(href),
@@ -17,7 +17,7 @@ export const mockLocationAssign = (href = 'https://localhost') => {
 
 //////////////////////////////////////////////////////////////
 export const mockOpen = () => {
-  const open = vitest.fn();
+  const open = vi.fn();
   Object.defineProperty(window, 'open', {
     configurable: true,
     value: open,
@@ -26,6 +26,6 @@ export const mockOpen = () => {
 };
 
 //////////////////////////////////////////////////////////////
-export const textNoExists = (text: string) => {
+export const expectTextNoExist = (text: string) => {
   expect(screen.queryByText(text)).toBeNull();
 };

@@ -1,5 +1,5 @@
 /**
- * This file can be used to define Vitest setup
+ * This file can be used to define Test setup
  */
 
 afterEach(() => {
