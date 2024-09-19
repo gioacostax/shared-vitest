@@ -5,7 +5,7 @@
 import { screen } from '@testing-library/dom';
 
 //////////////////////////////////////////////////////////////
-export const mockLocationAssign = (href = 'https://localhost') => {
+export const locationAssignMock = (href = 'https://localhost') => {
   const assign = vi.fn();
   Object.defineProperty(window, 'location', {
     configurable: true,
@@ -16,7 +16,7 @@ export const mockLocationAssign = (href = 'https://localhost') => {
 };
 
 //////////////////////////////////////////////////////////////
-export const mockOpen = () => {
+export const openMock = () => {
   const open = vi.fn();
   Object.defineProperty(window, 'open', {
     configurable: true,
@@ -26,6 +26,6 @@ export const mockOpen = () => {
 };
 
 //////////////////////////////////////////////////////////////
-export const expectTextNoExist = (text: string) => {
+export const expectTextNotExist = (text: string) => {
   expect(screen.queryByText(text)).toBeNull();
 };
