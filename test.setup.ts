@@ -4,4 +4,5 @@
 
 afterEach(() => {
   vi.useRealTimers();
+  vi.resetAllMocks();
 });

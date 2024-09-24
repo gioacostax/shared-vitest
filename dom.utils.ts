@@ -26,6 +26,16 @@ export const openMock = () => {
 };
 
 //////////////////////////////////////////////////////////////
+export const alertMock = () => {
+  const alert = vi.fn();
+  Object.defineProperty(window, 'alert', {
+    configurable: true,
+    value: alert,
+  });
+  return alert;
+};
+
+//////////////////////////////////////////////////////////////
 export const expectTextNotExist = (text: string) => {
   expect(screen.queryByText(text)).toBeNull();
 };
