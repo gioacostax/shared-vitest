@@ -23,7 +23,7 @@ export default mergeConfig(
   defineConfig({
     plugins: [react()],
     test: {
-      setupFiles: [resolve(__dirname, './test.setup.ts'), resolve(__dirname, './react.setup.tsx')],
+      setupFiles: [resolve(__dirname, './react.setup.tsx')],
     },
   }),
 );
