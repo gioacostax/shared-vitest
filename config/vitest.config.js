@@ -28,7 +28,7 @@ export default defineConfig({
         singleThread: true,
       },
     },
-    reporters: ['default', 'junit'],
+    reporters: ['default', 'junit', ...(process.env.GITHUB_ACTIONS ? ['github-actions'] : [])],
     setupFiles: [resolve(__dirname, './test.setup.ts')],
   },
 });
