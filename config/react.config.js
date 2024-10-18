@@ -5,9 +5,7 @@
 
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { defineConfig, mergeConfig } from 'vitest/config';
-
-import sharedConfig from './vitest.config.js';
+import { defineConfig } from 'vitest/config';
 
 /**
  * Vitest React config dependencies
@@ -18,12 +16,9 @@ import sharedConfig from './vitest.config.js';
  * - @testing-library/react
  * - @testing-library/user-event
  */
-export default mergeConfig(
-  sharedConfig,
-  defineConfig({
-    plugins: [react()],
-    test: {
-      setupFiles: [resolve(__dirname, './react.setup.tsx')],
-    },
-  }),
-);
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    setupFiles: [resolve(__dirname, './react.setup.tsx')],
+  },
+});
