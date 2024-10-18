@@ -16,6 +16,7 @@ export default defineConfig({
   test: {
     coverage: {
       all: true,
+      extension: ['.js', '.cjs', '.mjs', '.ts', '.mts', '.tsx', '.jsx'],
       provider: 'istanbul',
       reporter: ['html-spa', 'lcov', 'text'],
     },
