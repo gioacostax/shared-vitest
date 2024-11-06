@@ -16,6 +16,26 @@ export const locationAssignMock = (href = 'https://localhost') => {
 };
 
 //////////////////////////////////////////////////////////////
+export const matchMediaMock = (matches = false) => {
+  Object.defineProperty(window, 'matchMedia', {
+    enumerable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      addEventListener: vi.fn().mockImplementation((_, fn: (e: MediaQueryListEvent) => void) => {
+        fn({ matches } as never);
+      }),
+      dispatchEvent: vi.fn(),
+      matches,
+      media: query,
+      onchange: null,
+      removeEventListener: vi.fn().mockImplementation((_, fn: (e: MediaQueryListEvent) => void) => {
+        fn({ matches } as never);
+      }),
+    })),
+    writable: true,
+  });
+};
+
+//////////////////////////////////////////////////////////////
 export const openMock = () => {
   const open = vi.fn();
   Object.defineProperty(window, 'open', {
